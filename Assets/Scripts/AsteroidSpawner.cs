@@ -12,10 +12,15 @@ public class AsteroidSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < 5; i++) CreateNewAsteroid(Random.Range(-11.0f, -9.0f), Random.Range(-7.0f, 7.0f));   // Left
-        for(int i = 0; i < 5; i++) CreateNewAsteroid(Random.Range(-10.0f, 10.0f), Random.Range(-8.0f, -7.0f));  // Bottom
-        for(int i = 0; i < 5; i++) CreateNewAsteroid(Random.Range(9.0f, 10.0f), Random.Range(-7.0f, 7.0f));     // Right
-        for(int i = 0; i < 5; i++) CreateNewAsteroid(Random.Range(-10.0f, 10.0f), Random.Range(7.0f, 8.0f));    // Top
+        // Create asteroids at random locations outside camera view
+        for(int i = 0; i < 2; i++)  // Left
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
+        for(int i = 0; i < 4; i++) // Bottom
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(-(Globals.VIEW_Y_RADIUS + 2), -(Globals.VIEW_Y_RADIUS + 1)));
+        for(int i = 0; i < 2; i++)  // Right
+            CreateNewAsteroid(Random.Range(Globals.VIEW_X_RADIUS + 1, Globals.VIEW_X_RADIUS + 2), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
+        for(int i = 0; i < 4; i++) // Top
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(Globals.VIEW_Y_RADIUS + 1, Globals.VIEW_Y_RADIUS + 2));
     }
 
     // Update is called once per frame
