@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AsteroidMovement : MonoBehaviour
 {
+    [SerializeField] float maxSpeed;
+    [SerializeField] float punishSpeed;
+
     private Rigidbody2D asteroid;
     private Vector2 position;
-    public float maxSpeed;
     private float moveSpeed;
     private float rotationSpeed;
     private float moveAngle;
@@ -33,11 +35,17 @@ public class AsteroidMovement : MonoBehaviour
         asteroid.rotation = moveAngle;  // start off with random angle of rotation
     }
 
-    // Update is called once per frame
+    void Update() {
+        asteroid.velocity = new Vector2(moveSpeed * Mathf.Cos(moveAngle), moveSpeed * Mathf.Sin(moveAngle));
+        if(!Globals.ON_BEAT && Input.GetKeyDown("space")) {
+          asteroid.velocity *= punishSpeed;
+        }
+    }
+
     void FixedUpdate()
     {
         asteroid.rotation += rotationSpeed; // change rotation by rotationSpeed
         position = asteroid.position;
-        if(position.magnitude > 18) Destroy(gameObject);
+        if(position.magnitude > 10) Destroy(gameObject);
     }
 }
