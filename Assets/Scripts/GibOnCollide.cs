@@ -6,7 +6,7 @@ public class GibOnCollide : MonoBehaviour
 {
     public int value; 
 
-    void OnTriggerEnter()
+    void OnTriggerEnter2D(Collider2D collider)
     {
         //Instantiate(sound, transform.position, transform.rotation);
         //ManageGame.score+= value;
