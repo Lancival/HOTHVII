@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class LoadScene : MonoBehaviour {
+
+	[SerializeField] private string name;
+
+    // Start is called before the first frame update
+    void Start() {
+        gameObject.GetComponent<Button>().onClick.AddListener(Load);
+    }
+
+    private void Load() {
+    	SceneManager.LoadScene(name);
+    }
+}
