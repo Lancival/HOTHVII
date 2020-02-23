@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Usage: Attach to an object in any scene where you need beats! Manipulate the beats
+// by changing values in Globals.
+
 public class Beats : MonoBehaviour {
-	private GameObject BEAT_TEST;
 
     // Start is called before the first frame update
     public void Start() {
-    	BEAT_TEST = GameObject.Find("Beat Test");
         StartCoroutine(Beat());
     }
 
@@ -15,12 +16,12 @@ public class Beats : MonoBehaviour {
     	while (true) {
     		yield return new WaitForSeconds(Globals.BEAT_TIME);
     		Globals.ON_BEAT = true;
-    		BEAT_TEST.SetActive(true);
-    		Debug.Log("Beat!");
     		yield return new WaitForSeconds(Globals.BEAT_PM);
     		Globals.ON_BEAT = false;
-    		BEAT_TEST.SetActive(false);
-    		Debug.Log("No Beat!");
     	}
+    }
+
+    public void StopBeat() {
+        StopCoroutine(Beat());
     }
 }
