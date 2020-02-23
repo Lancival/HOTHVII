@@ -27,14 +27,13 @@ public class AsteroidSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
       if(!Globals.ON_BEAT && Input.GetKeyDown("space")) { // if offbeat and player presses key down
-        int randInt = Random.Range(1, 12);                // random asteroid generated
-        if(randInt >= 1 && randInt <= 2)      // Left
+        int randInt = Random.Range(1, 26);                // random asteroid generated
+        if(randInt >= 1 && randInt <= 5)      // Left
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
-        else if(randInt >= 3 && randInt <= 6) // Bottom
+        else if(randInt >= 6 && randInt <= 13) // Bottom
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(-(Globals.VIEW_Y_RADIUS + 2), -(Globals.VIEW_Y_RADIUS + 1)));
-        else if(randInt >= 7 && randInt <= 8) // Right
+        else if(randInt >= 14 && randInt <= 18) // Right
             CreateNewAsteroid(Random.Range(Globals.VIEW_X_RADIUS + 1, Globals.VIEW_X_RADIUS + 2), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
         else                                  // Top
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(Globals.VIEW_Y_RADIUS + 1, Globals.VIEW_Y_RADIUS + 2));
