@@ -22,6 +22,11 @@ public class Shoot : MonoBehaviour
             float currentAngle = playerBody.rotation * Mathf.Deg2Rad;
             Vector2 offset = new Vector2(-Mathf.Sin(currentAngle), Mathf.Cos(currentAngle));
             Instantiate(bullet, tempPos+offset, transform.rotation);
+            if (!Globals.ON_BEAT)
+            {
+                //break combo
+                Debug.Log("offbeat");
+            }
         }
     }
 }
