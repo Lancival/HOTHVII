@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class Beats : MonoBehaviour {
 
+    private List<int> beat_list = new List<int>(new int[] {1, 2});
+    private int list_sum = 3;
+    private int beats = 0; // Number of beats started, only off_beat when equal to 0
+
     // Start is called before the first frame update
     public void Start() {
         StartCoroutine(Beat());
@@ -14,11 +18,19 @@ public class Beats : MonoBehaviour {
 
     public IEnumerator Beat() {
     	while (true) {
-    		yield return new WaitForSeconds(Globals.BEAT_TIME);
-    		Globals.ON_BEAT = true;
-    		yield return new WaitForSeconds(Globals.BEAT_PM);
-    		Globals.ON_BEAT = false;
+            for (int i = 0; i < beat_list.Count; i++)
+    		  yield return new WaitForSeconds(Globals.BEAT_TIME * beat_list[i] / list_sum);
+    		  Globals.ON_BEAT = true;
+              beats++;
+    		  StartCoroutine(OffBeat());
     	}
+    }
+
+    public IEnumerator OffBeat() {
+        yield return new WaitForSeconds(Globals.BEAT_LEN);
+        beats--;
+        if (beats == 0)
+            Globals.ON_BEAT = false;
     }
 
     public void StopBeat() {
