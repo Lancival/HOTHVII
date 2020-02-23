@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class Beats : MonoBehaviour {
 
-    private List<int> beat_list = new List<int>(new int[] {1, 2});
-    private int list_sum = 3;
+    private List<int> beat_list = new List<int>(new int[] {1});
+    private int list_sum = 1;
     private int beats = 0; // Number of beats started, only off_beat when equal to 0
 
     // Start is called before the first frame update
