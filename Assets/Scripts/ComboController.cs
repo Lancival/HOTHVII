@@ -9,10 +9,6 @@ public class ComboController : MonoBehaviour {
 	private int bars = 0;
 
 	void Update() {
-        if (Input.GetKeyDown("space")) {
-            Debug.Log(Globals.ON_BEAT);
-            Globals.COMBOS++;
-        }
 		if (Globals.COMBOS > bars)
 			CreateBar();
 		else if (Globals.COMBOS == 0)
@@ -20,9 +16,8 @@ public class ComboController : MonoBehaviour {
 	}
 
     private void CreateBar() {
-    	var newBar = Instantiate(ComboBar, gameObject.transform, false);
-    	if (bars <= 50)
-    		newBar.GetComponent<Image>().color = new Color(255, 255 - bars * 5, 255 - bars * 5, 255);
+        if (bars <= 50)
+    	   Instantiate(ComboBar, gameObject.transform, false);
         bars++;
     }
 
