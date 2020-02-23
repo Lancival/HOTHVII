@@ -37,7 +37,7 @@ public class AsteroidMovement : MonoBehaviour
     void FixedUpdate()
     {
         asteroid.rotation += rotationSpeed; // change rotation by rotationSpeed
-
+        position = asteroid.position;
         if(position.magnitude > 18) Destroy(gameObject);
     }
 }
