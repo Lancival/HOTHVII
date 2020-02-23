@@ -6,7 +6,7 @@ public class AsteroidMovement : MonoBehaviour
 {
     private Rigidbody2D asteroid;
     private Vector2 position;
-
+    public float maxSpeed;
     private float moveSpeed;
     private float rotationSpeed;
     private float moveAngle;
@@ -17,7 +17,7 @@ public class AsteroidMovement : MonoBehaviour
         asteroid = gameObject.GetComponent<Rigidbody2D>();
         position = asteroid.position;
 
-        moveSpeed = Random.Range(0.5f, 4f);         // velocity from 0.5 to 4
+        moveSpeed = maxSpeed * Random.Range(0.5f, 4f);         // velocity from 0.5 to 4
         rotationSpeed = Random.Range(-1f, 1f);      // rotation speed from -1 to 1
 
         // Determine random moveAngle based on asteroid position

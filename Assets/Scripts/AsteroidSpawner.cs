@@ -12,14 +12,15 @@ public class AsteroidSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //CreateNewAsteroid(0, 0);
         // Create asteroids at random locations outside camera view
         for(int i = 0; i < 2; i++)  // Left
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
-        for(int i = 0; i < 4; i++) // Bottom
+        for(int i = 0; i < 4; i++)  // Bottom
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(-(Globals.VIEW_Y_RADIUS + 2), -(Globals.VIEW_Y_RADIUS + 1)));
         for(int i = 0; i < 2; i++)  // Right
             CreateNewAsteroid(Random.Range(Globals.VIEW_X_RADIUS + 1, Globals.VIEW_X_RADIUS + 2), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
-        for(int i = 0; i < 4; i++) // Top
+        for(int i = 0; i < 4; i++)  // Top
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(Globals.VIEW_Y_RADIUS + 1, Globals.VIEW_Y_RADIUS + 2));
     }
 
@@ -27,6 +28,16 @@ public class AsteroidSpawner : MonoBehaviour
     void Update()
     {
 
-      //if(!Globals.ON_BEAT) CreateNewAsteroid
+      if(!Globals.ON_BEAT && Input.GetKeyDown("space")) { // if offbeat and player presses key down
+        int randInt = Random.Range(1, 12);                // random asteroid generated
+        if(randInt >= 1 && randInt <= 2)      // Left
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
+        else if(randInt >= 3 && randInt <= 6) // Bottom
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(-(Globals.VIEW_Y_RADIUS + 2), -(Globals.VIEW_Y_RADIUS + 1)));
+        else if(randInt >= 7 && randInt <= 8) // Right
+            CreateNewAsteroid(Random.Range(Globals.VIEW_X_RADIUS + 1, Globals.VIEW_X_RADIUS + 2), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
+        else                                  // Top
+            CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(Globals.VIEW_Y_RADIUS + 1, Globals.VIEW_Y_RADIUS + 2));
+      }
     }
 }
