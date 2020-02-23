@@ -12,7 +12,9 @@ public class AsteroidSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateNewAsteroid(0,0);
+        for(int i = 0; i < 10; i++) {
+          CreateNewAsteroid(Random.Range(-10.0f, 10.0f),Random.Range(-10.0f, 10.0f));
+        }
     }
 
     // Update is called once per frame
