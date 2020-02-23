@@ -37,7 +37,7 @@ public class CharacterMoveController : MonoBehaviour
             playerBody.AddForce(direction * moveForce);
         playerBody.rotation += rotationSpeed * horizInput * -1;
         playerBody.velocity += friction;
-        Debug.Log(playerBody.position);
+        //Debug.Log(playerBody.position);
 
         float playerX = playerBody.position.x;
         float playerY = playerBody.position.y;

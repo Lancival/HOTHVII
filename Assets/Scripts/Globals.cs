@@ -4,4 +4,6 @@
     public static float BEAT_LEN = 0.25f; // Leniency after beat
     public static int SCORE = 0;
     public static int COMBOS = 0;
+    public static float VIEW_Y_RADIUS = 5;
+    public static float VIEW_X_RADIUS = 10;
 }
