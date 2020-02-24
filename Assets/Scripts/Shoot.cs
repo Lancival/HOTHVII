@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
 
+    private bool[] powerUps = new bool[3];
     private int bulletType;
     private Rigidbody2D playerBody;
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class Shoot : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         bulletType = 0;
+        for(int i = 0; i < 3; i++) powerUps[i] = false;
     }
 
     // Update is called once per frame
@@ -35,11 +37,17 @@ public class Shoot : MonoBehaviour
                 Debug.Log("onbeat");
             }
 
-            if(Globals.COMBOS >= 10)
-            {
-                Vector2 offset2 = offset * 0.5f;
-                Instantiate(bullet, tempPos + offset2, transform.rotation);
+            // COMBO and PowerUp logic tree
+            if(Globals.COMBOS < 10) {
+                powerUps[0] = powerUps[1] = powerUps[2] = false;
+            } else if(Globals.COMBOS >= 10 && Globals.COMBOS < 25) {
+                powerUps[0] = true;
+            } else if(Globals.COMBOS >= 25 && Globals.COMBOS < 50) {
+                powerUps[0] = powerUps[1] = true;
+            } else {
+                powerUps[0] = powerUps[1] = powerUps[2] = true;
             }
+
         }
     }
 }
