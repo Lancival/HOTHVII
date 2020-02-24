@@ -21,7 +21,10 @@ public class GibOnCollide : MonoBehaviour {
             Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
             collider.gameObject.GetComponent<AudioSource>().Play(0);
             Destroy(collider.gameObject);
-            Destroy(gameObject);
+            if (!GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(1))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(powerUps[0] + "" + powerUps[1] + "" + powerUps[2]);
         if (Input.GetKeyDown("space"))
         {
             if (Globals.ON_BEAT)
