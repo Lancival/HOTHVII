@@ -16,10 +16,6 @@ public class GibOnCollide : MonoBehaviour {
             Destroy(collider.gameObject);
         } else if (gameObject.layer == 11)
             return;
-        else if (gameObject.layer == 9 && GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(1))
-        {
-            
-        }
         else if (collider.gameObject.layer == 8 && gameObject.layer == 9) {
             Debug.Log(gameObject.layer);
             Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
