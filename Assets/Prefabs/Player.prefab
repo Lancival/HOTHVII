@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d4752e693a7f34eaa1083adf288d82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 1
-  rotationSpeed: 1
-  frictionForce: 0.01
+  moveForce: 10
+  rotationSpeed: 2
+  frictionForce: 0.05
 --- !u!114 &3039742542270928995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,4 +173,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e7ea8ed1a0b36b4ca7115f922ae6a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
+  baseScore: 0

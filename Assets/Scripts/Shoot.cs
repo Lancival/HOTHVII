@@ -52,7 +52,6 @@ public class Shoot : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     void Shot(float rotationVal)
     {
         Vector2 tempPos = transform.position;
