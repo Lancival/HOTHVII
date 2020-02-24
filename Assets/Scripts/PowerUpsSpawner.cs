@@ -16,7 +16,7 @@ public class PowerUpsSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate() {
 
-        int randInt = Random.Range(1, 200 + 100 * Globals.DIFFICULTY); // Averages 1 powerUp every 4 to 8 seconds
+        int randInt = Random.Range(1, 100 + 50 * Globals.DIFFICULTY); // Averages 1 powerUp every 4 to 8 seconds
         if(randInt == 1) {
             float x = Random.Range(-Globals.VIEW_X_RADIUS, Globals.VIEW_X_RADIUS);
             float y = Random.Range(-Globals.VIEW_Y_RADIUS, Globals.VIEW_Y_RADIUS);
