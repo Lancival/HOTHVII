@@ -6,11 +6,12 @@ public class CharacterMoveController : MonoBehaviour
 {
     public float moveForce; // force based movement, adds to the 'space' feel
     public float rotationSpeed; // should rotation be force-based? causes player to think about compensation
-    public float frictionForce;
+    //public float frictionForce;
     private Rigidbody2D playerBody;
 
     private float horizInput;
     private float vertiInput;
+    private float BORDER = 0.1f;
     private Vector2 direction;
 
     // Start is called before the first frame update
@@ -31,34 +32,33 @@ public class CharacterMoveController : MonoBehaviour
     void FixedUpdate()
     {
         float currentAngle = playerBody.rotation * Mathf.Deg2Rad;
-        Vector2 friction = playerBody.velocity * -frictionForce;
+        //Vector2 friction = playerBody.velocity * -frictionForce;
         direction = new Vector2(-Mathf.Sin(currentAngle), Mathf.Cos(currentAngle));
         if(vertiInput == 1)
             playerBody.AddForce(direction * moveForce);
         playerBody.rotation += rotationSpeed * horizInput * -1;
-        playerBody.velocity += friction;
+        //playerBody.velocity += friction;
         //Debug.Log(playerBody.position);
 
         float playerX = playerBody.position.x;
         float playerY = playerBody.position.y;
         bool willWrap = false;
-        if (playerX > 10.5 || playerX < -10.5)
+        if (playerX > 10 + BORDER || playerX < -10 - BORDER)
         {
             playerX = playerX * -1;
-            if (playerX > 0) playerX += -0.5f;
-            else playerX += 0.5f;
+            if (playerX > 0) playerX -= BORDER;
+            else playerX += BORDER;
             willWrap = true;
         }
-        if (playerY > 5.5 || playerY < -5.5)
+        if (playerY > 5 + BORDER || playerY < -5 - BORDER)
         {
             playerY = playerY * -1;
-            if (playerY > 0) playerY += -0.5f;
-            else playerY += 0.5f;
+            if (playerY > 0) playerY -= BORDER;
+            else playerY += BORDER;
             willWrap = true;
         }
 
-        if (willWrap)
-        {
+        if (willWrap) {
             playerBody.MovePosition(new Vector2(playerX, playerY));
         }
     }
