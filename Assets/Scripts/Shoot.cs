@@ -76,9 +76,15 @@ public class Shoot : MonoBehaviour
         Instantiate(bullet, tempPos + offset, Quaternion.Euler(0,0,currentAngle*Mathf.Rad2Deg));
     }
 
-    void PowerUp(int index)
+    public void PowerUpSet(int index)
     {
         if (index < 0 || index > 3) return;
         powerUps[index] = true;
+    }
+
+    public bool PowerUpVal(int index)
+    {
+        if (index < 0 || index > 3) return;
+        return powerUps[index];
     }
 }
