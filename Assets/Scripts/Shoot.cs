@@ -46,15 +46,15 @@ public class Shoot : MonoBehaviour
             {
                 powerUps[0] = false;
             }*/
-            if (Globals.COMBOS >= 10 && Globals.COMBOS < 25)
+            if (Globals.COMBOS >= 10 * Globals.DIFFICULTY && Globals.COMBOS < 25 * Globals.DIFFICULTY)
             {
                 powerUps[0] = true;
             }
-            else if (Globals.COMBOS >= 25 && Globals.COMBOS < 50)
+            else if (Globals.COMBOS >= 25 * Globals.DIFFICULTY && Globals.COMBOS < 50 * Globals.DIFFICULTY)
             {
                 powerUps[0] = powerUps[1] = true;
             }
-            else if (Globals.COMBOS >= 50)
+            else if (Globals.COMBOS >= 50 * Globals.DIFFICULTY)
             {
                 powerUps[0] = powerUps[1] = powerUps[2] = true;
             }
