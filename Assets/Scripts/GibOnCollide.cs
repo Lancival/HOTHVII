@@ -21,5 +21,6 @@ public class GibOnCollide : MonoBehaviour {
             Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
             Destroy(gameObject);
         }
+        else if(gameObject.layer == 9 && )
     }
 }
