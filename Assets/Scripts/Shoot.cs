@@ -30,6 +30,7 @@ public class Shoot : MonoBehaviour
             {
                 Globals.COMBOS = 0;
                 powerUps[0] = powerUps[1] = powerUps[2] = false;
+                Globals.SCORE -= 5;
             }
             // COMBO and PowerUp logic tree
             if (Globals.COMBOS < 10)
