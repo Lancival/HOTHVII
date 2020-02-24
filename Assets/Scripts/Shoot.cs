@@ -84,7 +84,7 @@ public class Shoot : MonoBehaviour
 
     public bool PowerUpVal(int index)
     {
-        if (index < 0 || index > 3) return;
+        if (index < 0 || index > 3) return false;
         return powerUps[index];
     }
 }
