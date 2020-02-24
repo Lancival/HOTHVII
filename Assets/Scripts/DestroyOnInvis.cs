@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DestroyOnInvis : MonoBehaviour
 {
-    void OnBecameInvisible()
-    {
+    void OnBecameInvisible() {
         Destroy(gameObject);
     }
 }
