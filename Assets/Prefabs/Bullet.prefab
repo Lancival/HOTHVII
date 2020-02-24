@@ -271,5 +271,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933f0b6e845d74410ab4d3ffc3bcef2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleFactor: 0.5
+  scaleFactor: 0.25
   playNow: 1
