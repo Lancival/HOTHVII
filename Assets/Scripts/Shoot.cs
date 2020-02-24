@@ -20,26 +20,31 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Vector2 tempPos = transform.position;
-            float currentAngle = playerBody.rotation * Mathf.Deg2Rad;
-            Vector2 offset = new Vector2(-Mathf.Sin(currentAngle), Mathf.Cos(currentAngle));
-            Instantiate(bullet, tempPos+offset, transform.rotation);
-            if (!Globals.ON_BEAT)
-            {
-                Globals.COMBOS = 0;
-                Debug.Log("offbeat");
-            }
-            else
-            {
-                Globals.COMBOS++;
-                Debug.Log("onbeat");
-            }
+            Shot(0f);
+        }
+    }
 
-            if(Globals.COMBOS >= 10)
-            {
-                Vector2 offset2 = offset * 0.5f;
-                Instantiate(bullet, tempPos + offset2, transform.rotation);
-            }
+    void Shot(float rotationVal)
+    {
+        Vector2 tempPos = transform.position;
+        float currentAngle = (playerBody.rotation+rotationVal) * Mathf.Deg2Rad;
+        Vector2 offset = new Vector2(-Mathf.Sin(currentAngle), Mathf.Cos(currentAngle));
+        Instantiate(bullet, tempPos + offset, Quaternion.Euler(0,0,currentAngle*Mathf.Rad2Deg));
+        if (!Globals.ON_BEAT)
+        {
+            Globals.COMBOS = 0;
+            Debug.Log("offbeat");
+        }
+        else
+        {
+            Globals.COMBOS++;
+            Debug.Log("onbeat");
+        }
+
+        if (Globals.COMBOS >= 10)
+        {
+            Vector2 offset2 = offset * 0.5f;
+            Instantiate(bullet, tempPos + offset2, transform.rotation);
         }
     }
 }
