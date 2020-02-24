@@ -15,7 +15,7 @@ public class Shoot : MonoBehaviour
     {
         playerBody = GetComponent<Rigidbody2D>();
         bulletType = 0;
-        for(int i = 0; i < 3; i++) powerUps[i] = false;
+        for (int i = 0; i < 3; i++) powerUps[i] = false;
     }
 
     // Update is called once per frame
@@ -42,7 +42,10 @@ public class Shoot : MonoBehaviour
                 powerUps[0] = powerUps[1] = powerUps[2] = false;
                 Globals.SCORE -= 5;
             }
-
+            /*if (Globals.COMBOS < 10)
+            {
+                powerUps[0] = false;
+            }*/
             if (Globals.COMBOS >= 10 && Globals.COMBOS < 25)
             {
                 powerUps[0] = true;
@@ -51,7 +54,7 @@ public class Shoot : MonoBehaviour
             {
                 powerUps[0] = powerUps[1] = true;
             }
-            else
+            else if (Globals.COMBOS >= 50)
             {
                 powerUps[0] = powerUps[1] = powerUps[2] = true;
             }
@@ -63,7 +66,6 @@ public class Shoot : MonoBehaviour
             }
         }
     }
-    
     void Shot(float rotationVal)
     {
         Vector2 tempPos = transform.position;
