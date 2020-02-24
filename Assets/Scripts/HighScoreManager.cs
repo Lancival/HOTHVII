@@ -28,7 +28,7 @@ public class HighScoreManager : MonoBehaviour {
     	for (int i = 1; i <= 10; i++) {
     		int highscore = GetHighScore(i);
     		if (highscore == -1 || highscore < score) {
-    			for (int j = 9; j > i; j--)
+    			for (int j = 9; j >= i; j--)
     				if (GetHighScore(j) != -1)
     					PlayerPrefs.SetInt("score" + (j+1).ToString(), GetHighScore(j));
     			PlayerPrefs.SetInt("score" + i.ToString(), score);
