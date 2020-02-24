@@ -14,13 +14,13 @@ public class AsteroidSpawner : MonoBehaviour
     {
         //CreateNewAsteroid(0, 0);
         // Create asteroids at random locations outside camera view
-        for(int i = 0; i < 2; i++)  // Left
+        for(int i = 0; i < 5; i++)  // Left
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
-        for(int i = 0; i < 4; i++)  // Bottom
+        for(int i = 0; i < 8; i++)  // Bottom
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(-(Globals.VIEW_Y_RADIUS + 2), -(Globals.VIEW_Y_RADIUS + 1)));
-        for(int i = 0; i < 2; i++)  // Right
+        for(int i = 0; i < 5; i++)  // Right
             CreateNewAsteroid(Random.Range(Globals.VIEW_X_RADIUS + 1, Globals.VIEW_X_RADIUS + 2), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
-        for(int i = 0; i < 4; i++)  // Top
+        for(int i = 0; i < 8; i++)  // Top
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 1), Globals.VIEW_X_RADIUS + 1), Random.Range(Globals.VIEW_Y_RADIUS + 1, Globals.VIEW_Y_RADIUS + 2));
     }
 
