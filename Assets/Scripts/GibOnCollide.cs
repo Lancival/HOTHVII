@@ -6,7 +6,7 @@ public class GibOnCollide : MonoBehaviour {
     [SerializeField] private int baseScore;
 
     void OnTriggerEnter2D(Collider2D collider) {
-
+        
         //Instantiate(sound, transform.position, transform.rotation);
         if (gameObject.name == "Player" && collider.gameObject.layer != 11) { // if colliding object is a player
             Globals.LIVES--;              // subtract a life
@@ -17,13 +17,14 @@ public class GibOnCollide : MonoBehaviour {
             // If two asteroids collide, do nothing
             return;
         }
-        else if (collider.gameObject.layer != 11) {
-            Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
-            Destroy(gameObject);
-        }
-        else if(gameObject.layer == 9 && GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(1))
+        else if (gameObject.layer == 9 && GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(1))
         {
             
+        }
+        else if (collider.gameObject.layer != 11) {
+            Debug.Log(gameObject.layer);
+            Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
+            Destroy(gameObject);
         }
     }
 }
