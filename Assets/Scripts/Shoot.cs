@@ -29,6 +29,7 @@ public class Shoot : MonoBehaviour
             }
             else
             {
+<<<<<<< HEAD
                 if (powerUps[2])
                 {
                     powerUps[2] = false;
@@ -38,6 +39,16 @@ public class Shoot : MonoBehaviour
                     Globals.COMBOS = 0;
                     powerUps[0] = powerUps[1] = powerUps[2] = false;
                 }
+=======
+                Globals.COMBOS = 0;
+                powerUps[0] = powerUps[1] = powerUps[2] = false;
+                Globals.SCORE -= 5;
+            }
+            // COMBO and PowerUp logic tree
+            if (Globals.COMBOS < 10)
+            {
+                //
+>>>>>>> 5d4c4676a6fdc421c551e09dc0cc6fb6ce56813d
             }
 
             else if (Globals.COMBOS >= 10 && Globals.COMBOS < 25)
