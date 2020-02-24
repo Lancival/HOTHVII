@@ -5,6 +5,8 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     [SerializeField] GameObject someName;
+    private float difficultyScaler;
+
     public void CreateNewAsteroid(float x, float y)
     {
         Instantiate(someName, new Vector3(x, y, 0), Quaternion.identity);
@@ -24,7 +26,7 @@ public class AsteroidSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //CreateNewAsteroid(0, 0);
+        difficultyScaler = 0;
         // Create asteroids at random locations outside camera view
         for(int i = 0; i < 5; i++)  // Left
             CreateNewAsteroid(Random.Range(-(Globals.VIEW_X_RADIUS + 2), -(Globals.VIEW_X_RADIUS + 1)), Random.Range(-(Globals.VIEW_Y_RADIUS + 1), Globals.VIEW_Y_RADIUS + 1));
@@ -45,7 +47,8 @@ public class AsteroidSpawner : MonoBehaviour
     }
     // 50 times a second
     void FixedUpdate() {
-        int randInt = Random.Range(1, 50 - 25 * Globals.DIFFICULTY); // Averages 1 to 2 asteroids per second
+        difficultyScaler += 0.005f;
+        int randInt = Random.Range(1, 50 - 25 * Globals.DIFFICULTY - (int)difficultyScaler); // Averages 1 to 2 asteroids per second
         if(randInt <= 1) MakeRandomAsteroid();
     }
 }
