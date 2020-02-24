@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
 
-    private bulletType;
+    private int bulletType;
     private Rigidbody2D playerBody;
     // Start is called before the first frame update
     void Start()
