@@ -33,7 +33,6 @@ public class DestroyOnInvis : MonoBehaviour
 
     void update()
     {
-        GameObject.Find("Player").GetComponent<Shoot>().PowerUpSet(2);
         willWrap = GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(2);
     }
 }
