@@ -17,8 +17,10 @@ public class GibOnCollide : MonoBehaviour {
             // If two asteroids collide, do nothing
             return;
         }
-        else if (collider.gameObject.layer != 11) {
+        else if (gameObject.layer == 9 && collider.gameObject.layer == 8) {
+            // If the player shoots an asteroid, destroy the asteroid, increase score, and play destruction sound
             Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
+            collider.gameObject.GetComponent<AudioSource>().Play(0);
             Destroy(gameObject);
         }
         else if(gameObject.layer == 9 && GameObject.Find("Player").GetComponent<Shoot>().PowerUpVal(1))
