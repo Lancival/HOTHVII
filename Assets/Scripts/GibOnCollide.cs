@@ -8,12 +8,12 @@ public class GibOnCollide : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
 
         //Instantiate(sound, transform.position, transform.rotation);
-        if(gameObject.name == "Player") { // if colliding object is a player
+        if(gameObject.name == "Player" && collider.gameObject.layer != 11) { // if colliding object is a player
             Globals.LIVES--;              // subtract a life
             Debug.Log("lose life");
             Debug.Log(Globals.LIVES + " lives left");
             if(Globals.LIVES == 0) { Destroy(gameObject); } // Destroy player once 0 lives
-        } else {
+        } else if (collider.gameObject.layer != 11) {
             Globals.SCORE += baseScore + Globals.COMBOS * Globals.COMBOS;
             Destroy(gameObject);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TridentPower : PowerUp
 {
-    public new void PowerUpPlayer()
+    override protected void PowerUpPlayer()
     {
         Debug.Log("trident");
     }

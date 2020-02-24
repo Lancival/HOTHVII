@@ -10,8 +10,8 @@ public class PowerUp : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void PowerUpPlayer()
+    virtual protected void PowerUpPlayer()
     {
-
+        Debug.Log("parent");
     }
 }
