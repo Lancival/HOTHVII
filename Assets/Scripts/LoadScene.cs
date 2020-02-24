@@ -16,6 +16,7 @@ public class LoadScene : MonoBehaviour {
     private void Load() {
 				if(name == "Gameplay") {
 					Globals.SCORE = 0;
+					Globals.LIVES = 3;
 				}
     		SceneManager.LoadScene(name);
     }
