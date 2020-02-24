@@ -12,7 +12,7 @@ public class GibOnCollide : MonoBehaviour {
             Globals.LIVES--;              // subtract a life
             Debug.Log("lose life");
             Debug.Log(Globals.LIVES + " lives left");
-            if (Globals.LIVES == 0) { Destroy(gameObject); } // Destroy player once 0 lives
+            //if (Globals.LIVES == 0) { Destroy(gameObject); } // Destroy player once 0 lives
             Destroy(collider.gameObject);
         } else if (gameObject.layer == 11)
             return;
