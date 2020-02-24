@@ -15,6 +15,7 @@ public class Beats : MonoBehaviour {
     // Start is called before the first frame update
     public void Start() {
         indicator = gameObject.GetComponent<AudioSource>();
+        indicator.volume = Globals.VOLUME;
         StartCoroutine(Beat());
     }
 
