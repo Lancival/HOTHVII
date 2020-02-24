@@ -24,8 +24,19 @@ public class Shoot : MonoBehaviour
             Instantiate(bullet, tempPos+offset, transform.rotation);
             if (!Globals.ON_BEAT)
             {
-                //break combo
+                Globals.COMBOS = 0;
                 Debug.Log("offbeat");
+            }
+            else
+            {
+                Globals.COMBOS++;
+                Debug.Log("onbeat");
+            }
+
+            if(Globals.COMBOS >= 10)
+            {
+                Vector2 offset2 = offset * 0.5f;
+                Instantiate(bullet, tempPos + offset2, transform.rotation);
             }
         }
     }
