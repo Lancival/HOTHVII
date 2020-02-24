@@ -37,9 +37,9 @@ public class AsteroidMovement : MonoBehaviour
 
     void Update() {
         asteroid.velocity = new Vector2(moveSpeed * Mathf.Cos(moveAngle), moveSpeed * Mathf.Sin(moveAngle));
-        if(!Globals.ON_BEAT && Input.GetKeyDown("space")) {
-          asteroid.velocity *= punishSpeed;
-        }
+        // if(!Globals.ON_BEAT && Input.GetKeyDown("space")) {  // too laggy
+        //   asteroid.velocity *= punishSpeed;
+        // }
     }
 
     void FixedUpdate()
