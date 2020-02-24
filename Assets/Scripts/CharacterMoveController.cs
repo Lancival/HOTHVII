@@ -43,7 +43,7 @@ public class CharacterMoveController : MonoBehaviour
         float playerX = playerBody.position.x;
         float playerY = playerBody.position.y;
         bool willWrap = false;
-        if (playerX > 10 + BORDER || playerX < -10 - BORDER)
+        if (playerX > 8 + BORDER || playerX < -8 - BORDER)
         {
             playerX = playerX * -1;
             if (playerX > 0) playerX -= BORDER;
