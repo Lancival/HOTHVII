@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
 
+    //0 is trident, 1 is penetration, 2 is combo saver
     private bool[] powerUps = new bool[3];
     private int bulletType;
     private Rigidbody2D playerBody;
@@ -28,14 +29,17 @@ public class Shoot : MonoBehaviour
             }
             else
             {
-                Globals.COMBOS = 0;
-                powerUps[0] = powerUps[1] = powerUps[2] = false;
+                if (powerUps[2])
+                {
+                    powerUps[2] = false;
+                }
+                else
+                {
+                    Globals.COMBOS = 0;
+                    powerUps[0] = powerUps[1] = powerUps[2] = false;
+                }
             }
-            // COMBO and PowerUp logic tree
-            if (Globals.COMBOS < 10)
-            {
-                //
-            }
+
             else if (Globals.COMBOS >= 10 && Globals.COMBOS < 25)
             {
                 powerUps[0] = true;
@@ -49,6 +53,11 @@ public class Shoot : MonoBehaviour
                 powerUps[0] = powerUps[1] = powerUps[2] = true;
             }
             Shot(0f);
+            if (powerUps[0])
+            {
+                Shot(-30f);
+                Shot(30f);
+            }
         }
     }
     
@@ -58,5 +67,11 @@ public class Shoot : MonoBehaviour
         float currentAngle = (playerBody.rotation+rotationVal) * Mathf.Deg2Rad;
         Vector2 offset = new Vector2(-Mathf.Sin(currentAngle), Mathf.Cos(currentAngle));
         Instantiate(bullet, tempPos + offset, Quaternion.Euler(0,0,currentAngle*Mathf.Rad2Deg));
+    }
+
+    void PowerUp(int index)
+    {
+        if (index < 0 || index > 3) return;
+        powerUps[index] = true;
     }
 }
