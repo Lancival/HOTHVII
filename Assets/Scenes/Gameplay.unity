@@ -1064,3 +1064,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifebar: {fileID: 4004541213442459419, guid: 288858c38fbda44e49c2b436c45a31a1, type: 3}
+  sceneName: Game Over

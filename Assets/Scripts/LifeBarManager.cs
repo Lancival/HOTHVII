@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LifeBarManager : MonoBehaviour
 {
     [SerializeField] GameObject lifebar;
+    [SerializeField] private string sceneName;
     private int numBars;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class LifeBarManager : MonoBehaviour
         if(Globals.LIVES == 0 && numBars == 1) {
             Destroy(gameObject.transform.GetChild(0).gameObject);
             numBars--;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
