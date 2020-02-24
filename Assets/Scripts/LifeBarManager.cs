@@ -31,6 +31,7 @@ public class LifeBarManager : MonoBehaviour
         if(Globals.LIVES == 0 && numBars == 1) {
             Destroy(gameObject.transform.GetChild(0).gameObject);
             numBars--;
+            HighScoreManager.SetHighScore(Globals.SCORE);
             SceneManager.LoadScene(sceneName);
         }
     }
